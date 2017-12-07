@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';//注册表单组件
+
+import {FormsModule, ReactiveFormsModule }from '@angular/forms';
 import { HttpModule } from '@angular/http';//导入http模块
 import { Routes, RouterModule } from '@angular/router';//导入路由模块
 
@@ -20,6 +21,7 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 
 
 import { ProductService } from './shared/product.service';
+import { FilterPipe } from './pipe/filter.pipe';
 
 
 @NgModule({
@@ -34,13 +36,17 @@ import { ProductService } from './shared/product.service';
     HomeComponent,
     ProductPageComponent,
     Code404Component,
-    ProductDetailComponent
+    ProductDetailComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     FormsModule,
+    
     HttpModule,
+    
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]
